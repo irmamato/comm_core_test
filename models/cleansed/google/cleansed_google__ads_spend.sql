@@ -14,8 +14,8 @@ renamed as (
         CONVERT_TIMEZONE(tz.timezone_name, 'UTC', datetime) as datetime_in_UTC,
         ad_spend as ad_spend_in_currency,
         currency,
-        round(ad_spend * coalesce(cr.currency_rate, 1), 2) as ad_spend_USD,
-        substring(split_part(labels, ',', 1), 5) as campaign_id,
+        cast(round(ad_spend * coalesce(cr.currency_rate, 1), 2) as numeric(38,2)) as ad_spend_in_USD,
+        try_to_numeric(substring(split_part(labels, ',', 1), 5)) as campaign_id,
         labels
 
     from source s

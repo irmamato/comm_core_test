@@ -16,7 +16,7 @@ renamed as (
         CONVERT_TIMEZONE(tz.timezone_name, 'UTC', datetime) as datetime_in_UTC,
         total_amount as total_amount_in_currency,
         currency,
-        round(total_amount * coalesce(cr.currency_rate, 1), 2) as total_amount_in_USD
+        cast(round(total_amount * coalesce(cr.currency_rate, 1), 2) as numerci(38,2)) as total_amount_in_USD
 
     from source s
     left join {{ ref("seed_time_zone_codes") }} tz on tz.timezone_code = s.timezone
