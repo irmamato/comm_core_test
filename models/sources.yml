@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: crm
+    schema: RAW_DATA
+    tables:
+      - name: CRM__ORDERS
+
+  - name: google
+    schema: RAW_DATA
+    tables:
+      - name: GOOGLE__ADS_SPEND

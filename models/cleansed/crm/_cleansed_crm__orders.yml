@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: cleansed_crm__orders
+    description: Cleansed table which contains crm orders.
+    columns:
+      - name: campaign_id
+        description: Campaign id
+        tests:
+          - not_null
+      - name: campaign_name
+        description: Campaign name
+      - name: datetime_in_timezone
+        description: Order date and time in time zone specified in timezone field 
+      - name: timezone
+        description: Timezone code
+      - name: datetime_in_UTC
+        description: Order date and time in UTC time
+      - name: total_amount_in_currency
+        description: Total order amount in currency specified in currency field
+      - name: currency
+        description: Currency code
+      - name: total_amount_in_USD
+        description: Total order amount in USD currency
